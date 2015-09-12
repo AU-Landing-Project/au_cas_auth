@@ -151,6 +151,9 @@ require_once elgg_get_plugins_path() . PLUGIN_ID . '/vendor/autoload.php';
         <input type="text" size="50" name="params[search_attr]" value="<?php echo $vars['entity']->search_attr;?>"/><br/>
 
 
+		 <label for="params[ldap_context]"><?php echo elgg_echo('cas:settings:ldap:label:ldap_context');?></label><br/>
+        <div class="example"><?php echo elgg_echo('cas:settings:ldap:help:ldap_context');?></div>
+        <input type="text" size="50" name="params[ldap_context]" value="<?php echo $vars['entity']->ldap_context;?>"/><br/>
     </fieldset>
 </p>
 </fieldset>

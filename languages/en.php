@@ -17,6 +17,8 @@
 		'cas:settings:cas:label:cas_server_no_validation' => "Disable SSL verification",
 		'cas:settings:cas:label:cas_version' => "CAS version",
 		'cas:settings:cas:help:cas_version' => "The version of CAS on the server",
+		'cas:settings:ldap:label:ldap_context' => "LDAP Context",
+		'cas:settings:ldap:help:ldap_context' => "eg. ou=People,dc=athabascau,dc=ca",
 		'cas:settings:cas:help:cas_server_no_validation' => "Can be used for testing without a certificate, do not enable on production.",
         'au_cas_auth:usersettings:option:home' => 'back to the home page',
         'au_cas_auth:usersettings:option:dashboard' => 'to My Dashboard',

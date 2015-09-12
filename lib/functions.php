@@ -104,7 +104,6 @@ function send_to_cas($config) {
 
 	try {
 		// get module configuration
-		//@todo - make sure this is a setting
 		$cas_version = $config->cas_version ? $config->cas_version : CAS_VERSION_2_0;
 
 		// phpCAS::setDebug();
