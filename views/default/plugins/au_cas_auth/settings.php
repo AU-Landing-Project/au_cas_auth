@@ -1,4 +1,7 @@
 <?php
+
+namespace AU\CASAuth;
+
     /**
 	 * Elgg LDAP authentication
 	 * 
@@ -8,6 +11,8 @@
 	 * @copyright Curverider Ltd 2008
 	 * @link http://elgg.com
 	 */
+require_once elgg_get_plugins_path() . PLUGIN_ID . '/vendor/autoload.php';
+
 ?>
 <fieldset style="border: 1px solid black; padding: 15px; margin: 0 10px 0 10px;">
 <legend><?php echo elgg_echo('cas:settings:local:label')?></legend>
@@ -41,6 +46,34 @@
     	<div class="example"><?php echo elgg_echo('cas:settings:cas:help:certpath'); ?></div>
     	<?php 
     	echo elgg_view('input/text', array('name' => "params[cas_server_ca_cert_path]", 'value' => $vars['entity']->cas_server_ca_cert_path));
+    	?> 
+		
+	<label for="params[cas_server_no_validation]"><?php echo elgg_echo('cas:settings:cas:label:cas_server_no_validation'); ?></label>
+    	<div class="example"><?php echo elgg_echo('cas:settings:cas:help:cas_server_no_validation'); ?></div>
+    	<?php 
+    	echo elgg_view('input/dropdown', array(
+			'name' => "params[cas_server_no_validation]",
+			'value' => (int) $vars['entity']->cas_server_no_validation,
+			'options_values' => array(
+				0 => elgg_echo('option:no'),
+				1 => elgg_echo('option:yes')
+			)
+		));
+    	?> 
+		
+		<br><br>
+		<label for="params[cas_version]"><?php echo elgg_echo('cas:settings:cas:label:cas_version'); ?></label>
+    	<div class="example"><?php echo elgg_echo('cas:settings:cas:help:cas_version'); ?></div>
+    	<?php 
+    	echo elgg_view('input/dropdown', array(
+			'name' => "params[cas_version]",
+			'value' => $vars['entity']->cas_version ? $vars['entity']->cas_version : '2.0',
+			'options_values' => array(
+				'1.0' => '1.0',
+				'2.0' => '2.0',
+				'3.0' => '3.0'
+			)
+		));
     	?> 
     </fieldset>
 

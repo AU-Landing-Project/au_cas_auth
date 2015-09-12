@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
-	<name>AU CAS Authentication</name>
-	<author>Matt Beckett</author>
-	<version>0.1</version>
-	<description>Provides CAS authentication, redirection</description>
-	<website>http://www.athabascau.ca/</website>
-	<copyright>(C) Athabasca University 2008 - 2012</copyright>
-	<license>GNU Public License version 2</license>
+    <name>AU CAS Authentication</name>
+    <id>au_cas_auth</id>
+    <author>Matt Beckett</author>
+    <version>2.0</version>
+    <description>Provides CAS authentication, redirection</description>
+    <website>http://www.athabascau.ca/</website>
+    <copyright>(C) Athabasca University 2008 - 2015</copyright>
+    <license>GNU Public License version 2</license>
  
-	<category>Authentication</category>
+    <category>Authentication</category>
  
-	<!-- All plugins must require either elgg_version or elgg_release. -->
-	<requires>
-		<type>elgg_release</type>
-		<version>1.8</version>
-	</requires>
+    <!-- All plugins must require either elgg_version or elgg_release. -->
+    <requires>
+        <type>elgg_release</type>
+        <version>1.9</version>
+    </requires>
 </plugin_manifest>

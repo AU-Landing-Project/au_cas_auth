@@ -8,7 +8,7 @@
   <?php echo elgg_echo('au_cas_auth:usersettings:whichhomepage'); ?>
   
   <?php
-  	$value = elgg_get_plugin_user_setting('homepage', elgg_get_logged_in_user_guid(), 'au_cas_auth');
+  	$value = elgg_get_plugin_user_setting('homepage', elgg_get_page_owner_guid(), PLUGIN_ID);
     $options = array(
       'name' => "params[homepage]",
       'value' => $value,

@@ -1,0 +1,7 @@
+{
+    "name": "au/au_cas_auth",
+    "type": "elgg-plugin",
+    "require": {
+        "jasig/phpcas": "1.3.3"
+    }
+}

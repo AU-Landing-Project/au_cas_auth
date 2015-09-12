@@ -12,8 +12,10 @@ if ($user && $user->au_cas_login) {
   $title = elgg_echo('user:set:password');
   $content = elgg_echo('au_cas_auth:cas:password:reset');
   echo elgg_view_module('info', $title, $content);
+  return;
 }
-elseif ($user) {
+
+if ($user) {
 	$title = elgg_echo('user:set:password');
 
 	// only make the admin user enter current password for changing his own password.

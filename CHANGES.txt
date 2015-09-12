@@ -1,0 +1,8 @@
+== Version History ==
+
+x.x (mm/dd/yyyy):
+
+2.0 (09/11/2015):
+ - upgrade phpCAS to 1.3.3
+ - general code cleanup
+ - check for banned/disabled users

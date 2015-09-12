@@ -9,6 +9,15 @@
 
     $en = array(
         'au_cas_auth' => 'AU Login Plugin',
+		'au_cas_auth:failed:auth' => 'ERROR: Failed authenticating user via CAS.',
+		'au_cas_auth:ldap:connect:fail' => "Unable to connect to LDAP server",
+		'au_cas_auth:ldap:no_records' => 'LDAP: No records found.',
+		'au_cas_auth:ldap:no_info' => "LDAP server information has not been provided. Aborting now!",
+		'au_cas_auth:ldap:cannot_connect' => "LDAP-module cannot connect to LDAP server",
+		'cas:settings:cas:label:cas_server_no_validation' => "Disable SSL verification",
+		'cas:settings:cas:label:cas_version' => "CAS version",
+		'cas:settings:cas:help:cas_version' => "The version of CAS on the server",
+		'cas:settings:cas:help:cas_server_no_validation' => "Can be used for testing without a certificate, do not enable on production.",
         'au_cas_auth:usersettings:option:home' => 'back to the home page',
         'au_cas_auth:usersettings:option:dashboard' => 'to My Dashboard',
         'au_cas_auth:usersettings:option:notset' => 'Not Set',

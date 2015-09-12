@@ -1,21 +1,33 @@
 <?php
+
+namespace AU\CASAuth;
+
+const PLUGIN_ID = 'au_cas_auth';
+const PLUGIN_VERSION = 20150911;
+
 /**
  *  au_cas_auth
  *  a modified cas authentication plugin for Elgg 1.8
  *  modified to fit the needs of the Landing Project
  *  https://landing.athabascau.ca
  */
-// grab lib
-require_once('lib/functions.php');
+
+elgg_register_event_handler('init', 'system', __NAMESPACE__ . '\\init');
+
+
+require_once __DIR__ . '/lib/hooks.php';
+require_once __DIR__ . '/lib/events.php';
+require_once __DIR__ . '/lib/functions.php';
 
 /**
  * 
  * @return unknown_type
  */
-function au_cas_auth_init() {
+function init() {
 //  register_pam_handler('au_cas_auth_authenticate');
-  elgg_register_page_handler('au_cas_auth', 'au_cas_auth_page_handler');
-  elgg_register_plugin_hook_handler('permissions_check', 'all', 'au_cas_permissions_check');
+  elgg_register_page_handler('au_cas_auth', __NAMESPACE__ . '\\au_cas_auth_page_handler');
+  elgg_register_plugin_hook_handler('permissions_check', 'all', __NAMESPACE__ . '\\permissions_check');
+  elgg_register_event_handler('upgrade', 'system', __NAMESPACE__ . '\\upgrades');
 }
 
 
@@ -26,10 +38,10 @@ function au_cas_auth_page_handler($page){
   // that handles the return info from the cas server
   // can't be an action due to __elgg_token and __elgg_ts not being passed through properly
   if($page[0] == "login"){
-  	include "pages/login.php";
-  	return TRUE;
+	echo elgg_view('resources/au_cas_auth/login');
+  	return true;
   }
-  return FALSE;
+  return false;
 }
 
 /**
@@ -38,36 +50,11 @@ function au_cas_auth_page_handler($page){
  * @return unknown_type
  */
 function au_cas_auth_authenticate($credentials) {
-    
-    global $_PAM_HANDLERS, $_PAM_HANDLERS_MSG;
 
-    // build cas url
-    $casurl = au_cas_auth_build_cas_url('', TRUE, $credentials);
-
-    //var_dump($casurl); exit;
-    // Perform the authentication
-    
-    // user is already authenticated
-    /*
-    if($_PAM_HANDLERS_MSG['pam_auth_userpass'] == 'Authenticated!'){
-      return FALSE;
-    }
-    elseif($_PAM_HANDLERS_MSG['pam_auth_userpass'] == 'Not Authenticated.'){
-      // user tried to login to guest form but failed for some reason
-      return FALSE;
-    }
-    else{
-    */
-        // do a redirect to the cas URL
-       $config = elgg_get_plugin_from_id('au_cas_auth');
+    // do a redirect to the cas URL
+    $config = elgg_get_plugin_from_id(PLUGIN_ID);
         
-    $result = send_to_cas($config, $credentials);
-        //forward($casurl);
-        //var_dump($result); exit;
-    //}
-
-    return FALSE;
-
+    send_to_cas($config, $credentials);
+	
+    return false;
 }
-
-elgg_register_event_handler('init','system','au_cas_auth_init');
